@@ -2,6 +2,19 @@
 import React, { Component } from "react";
 import ToDoItem from "../ToDoItem/ToDoItem";
 import NewTodoForm from "../NewTodoForm/NewTodoForm";
+import styled from "styled-components";
+
+const Div = styled.div`
+  background: #2b2e39;
+  margin: 0 auto;
+  width: 80%;
+  padding: 14px;
+  margin-top: 14px;
+  border-radius: 14px;
+`
+const H2 = styled.h2`
+color: #ffa;
+`
 
 class ToDoList extends Component {
   static defaultProps = {
@@ -36,20 +49,8 @@ class ToDoList extends Component {
     const { title } = this.props;
     const { draft, tasks } = this.state;
     return (
-      <div>
-        <h2>{title}</h2>
-        <div>
-          <p>Zad 1 bez klasy i onklika - nie dzialaja style</p>
-        </div>
-        <div
-          onClick={this.toggleDone}
-          className={this.state.done ? "doneTodo" : ""}
-        >
-          <p>
-            Zad 2 z klasa i onklikiem, ale w innym konponencie.. - nie dzialaja
-            style
-          </p>
-        </div>
+      <Div>
+        <H2>{title}</H2>        
         {tasks.map((task) => (
           <ToDoItem
             id={task.text}
@@ -57,14 +58,13 @@ class ToDoList extends Component {
             text={task.text}
             done={task.done}
           />
-          // <ToDoItem id={task.text} key={task.text} task={task} />
         ))}
         <NewTodoForm
           onSubmit={this.addToDo}
           onChange={this.updateDraft}
           draft={draft}
         />
-      </div>
+      </Div>
     );
   }
 }

@@ -1,7 +1,10 @@
 body {
+  margin: 0;
+  padding: 0;
   text-align: center;
-  background: rgb(70, 68, 68);
+  background: rgb(20, 20, 20);
   font-family: sans-serif;
+  color: white;
 }
 
 .doneTodo {
